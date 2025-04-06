@@ -22,5 +22,9 @@ public record DadosCadastroTool(
                                 String descricao,
 
                                 @NotBlank
-                                String quantidade) {
+                                String quantidade,
+
+                                @NotBlank
+                                @Pattern(regexp = "\\d{4,6}")
+                                String locacao) {
 }

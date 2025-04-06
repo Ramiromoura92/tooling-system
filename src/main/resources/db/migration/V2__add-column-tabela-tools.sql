@@ -1,0 +1,2 @@
+ALTER TABLE tools
+ADD locacao VARCHAR(100);
