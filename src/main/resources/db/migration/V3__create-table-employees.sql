@@ -1,0 +1,8 @@
+CREATE TABLE employee (
+    id BIGINT NOT NULL AUTO_INCREMENT,
+    nome VARCHAR(20) NOT NULL,
+    matricula VARCHAR(20) NOT NULL UNIQUE,
+    cargo VARCHAR(20) NOT NULL UNIQUE,
+
+    PRIMARY KEY (id)
+);

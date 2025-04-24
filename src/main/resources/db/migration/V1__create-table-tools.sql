@@ -4,7 +4,7 @@ CREATE TABLE tools (
     num_peca VARCHAR(10) NOT NULL UNIQUE,
     num_equipamento VARCHAR(10) NOT NULL UNIQUE,
     descricao VARCHAR(100) NOT NULL,
-    quantidade INT NOT NULL,  -- Changed to INT for numerical values
+    quantidade INT NOT NULL,
 
     PRIMARY KEY (id)
 );
