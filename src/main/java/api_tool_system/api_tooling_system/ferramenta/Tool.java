@@ -53,11 +53,4 @@ public class Tool {
 
     }
 
-
-    public void excluir() {
-
-
-
-
-    }
 }

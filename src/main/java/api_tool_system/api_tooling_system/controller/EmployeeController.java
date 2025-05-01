@@ -1,15 +1,12 @@
 package api_tool_system.api_tooling_system.controller;
 
-import api_tool_system.api_tooling_system.colaborador.DadosCadastroEmployee;
-import api_tool_system.api_tooling_system.colaborador.EmployeeRepository;
-import api_tool_system.api_tooling_system.colaborador.Employees;
+import api_tool_system.api_tooling_system.colaborador.*;
 import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.transaction.annotation.Transactional;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
+
+import java.util.List;
 
 
 @RestController
@@ -25,6 +22,27 @@ public class EmployeeController {
     public void cadastrar(@RequestBody @Valid DadosCadastroEmployee dadosCadastroEmployee) {
 
         repository.save(new Employees(dadosCadastroEmployee));
+
+    }
+
+    @GetMapping
+    public List<DadosListagemEmployee> listar() {
+        return repository.findAll().stream().map(DadosListagemEmployee::new).toList();
+    }
+
+    @PutMapping
+    @Transactional
+    public void atualizar(@RequestBody @Valid DadosAtualizarEmployee dados){
+
+        var employee = repository.getReferenceById(dados.id());
+        employee.dadosAtualizarEmployee(dados);
+    }
+
+    @DeleteMapping("/{id}")
+    @Transactional
+    public void excluir(@PathVariable Long id){
+
+        repository.deleteById(id);
 
     }
 }

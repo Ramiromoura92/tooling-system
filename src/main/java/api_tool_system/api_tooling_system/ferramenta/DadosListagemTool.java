@@ -22,8 +22,8 @@ public record DadosListagemTool(
             tool.getNum_equipamento(),
             tool.getDescricao(),
             tool.getQuantidade(),
-            tool.getLocacao());
-
+            tool.getLocacao()
+    );
 
     }
 

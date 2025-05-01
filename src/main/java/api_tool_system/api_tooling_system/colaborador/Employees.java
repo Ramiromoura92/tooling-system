@@ -16,9 +16,10 @@ public class Employees {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private String id;
+    private Long id;
     private String nome;
     private String matricula;
+    @Enumerated(EnumType.STRING)
     private Position cargo;
 
 
@@ -27,6 +28,18 @@ public class Employees {
         this.nome = dadosCadastroEmployee.nome();
         this.matricula = dadosCadastroEmployee.matricula();
         this.cargo = dadosCadastroEmployee.cargo();
+
+    }
+
+
+    public void dadosAtualizarEmployee(DadosAtualizarEmployee dados){
+
+        if(dados.nome() != null){
+            this.nome = dados.nome();
+        }
+        if(dados.cargo() != null){
+            this.cargo = dados.cargo();
+        }
 
     }
 
